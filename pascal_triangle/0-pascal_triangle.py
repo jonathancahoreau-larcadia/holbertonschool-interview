@@ -1,21 +1,16 @@
 #!/usr/bin/python3
 def pascal_triangle(n):
-    if n <= 0:
-        return []
-
-    triangle = []
+    result = []
 
     for i in range(n):
         row = [1]
 
-        if triangle:
-            last = triangle[-1]
+        for j in range(1, i):
+            row.append(result[i - 1][j - 1] + result[i - 1][j])
 
-            for j in range(len(last) - 1):
-                row.append(last[j] + last[j + 1])
-
+        if i > 0:
             row.append(1)
 
-        triangle.append(row)
+        result.append(row)
 
-    return triangle
+    return result
