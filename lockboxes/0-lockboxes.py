@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-"""lockboxes module
-
-This module provides a function `canUnlockAll` that determines
-whether all boxes can be opened starting from box 0 using the
-keys found inside boxes.
-"""
-
-
 def canUnlockAll(boxes):
     """Determine if all boxes can be unlocked.
 
