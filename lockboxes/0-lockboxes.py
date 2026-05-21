@@ -1,17 +1,37 @@
 #!/usr/bin/env python3
+"""lockboxes module
+
+This module provides a function `canUnlockAll` that determines
+whether all boxes can be opened starting from box 0 using the
+keys found inside boxes.
+"""
+
+
 def canUnlockAll(boxes):
+    """Determine if all boxes can be unlocked.
+
+    Each element in `boxes` is a list of keys (integers) for other
+    boxes. You start with box 0 unlocked. A key with value `k` opens
+    box `k` if `0 <= k < len(boxes)`.
+
+    Args:
+        boxes (list of list of int): The list of boxes with keys.
+
+    Returns:
+        bool: True if all boxes can be opened, False otherwise.
+    """
     opened = {0}
     to_check = [0]
 
     while to_check:
-        boxe = to_check.pop()
+        box = to_check.pop()
 
-        for key in boxes[boxe]:
-            if 0<= key < len(boxes) and key not in opened:
-                opened.add(key)
-                to_check.append(key)
+        for k in boxes[box]:
+            if 0 <= k < len(boxes) and k not in opened:
+                opened.add(k)
+                to_check.append(k)
 
     if len(boxes) - len(opened) == 0:
         return True
-    else :
+    else:
         return False
