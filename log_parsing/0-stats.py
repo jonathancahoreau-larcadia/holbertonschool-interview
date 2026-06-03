@@ -35,7 +35,8 @@ total_size = 0  # cumulative file size from parsed log entries
 status_code = [200, 301, 400, 401, 403, 404, 405, 500]  # supported HTTP codes
 ref = {}  # counts of seen status codes
 
-if __name__ == "__main__":
+
+def main():
     try:
         for line in sys.stdin:
             line_count += 1
@@ -59,3 +60,7 @@ if __name__ == "__main__":
 
     except KeyboardInterrupt:
         print_stats()
+
+
+if __name__ == "__main__":
+    main()
