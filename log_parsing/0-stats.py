@@ -31,11 +31,10 @@ def main():
 
             line = line.strip()
             match = pattern.match(line)
+            line_count += 1
 
             if not match:
                 continue
-
-            line_count += 1
 
             code = int(match.group(1))
             file_size = int(match.group(2))
