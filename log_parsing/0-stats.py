@@ -38,6 +38,7 @@ ref = {}  # counts of seen status codes
 if __name__ == "__main__":
     try:
         for line in sys.stdin:
+            line_count += 1
             cut = line.split()
 
             try:
@@ -52,7 +53,7 @@ if __name__ == "__main__":
                 ref[code] = ref.get(code, 0) + 1
 
             total_size += file_size
-            line_count += 1
+
 
             if line_count % 10 == 0:
                 print_stats()
