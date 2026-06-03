@@ -22,7 +22,7 @@ def main():
     ref = {}
 
     pattern = re.compile(
-        r'^\d+\.\d+\.\d+\.\d+ - \[[^\]]+\] '
+        r'^\S+ - \[[^\]]+\] '
         r'"GET /projects/260 HTTP/1\.1" (\d+) (\d+)$'
     )
 
