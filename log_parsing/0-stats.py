@@ -15,7 +15,7 @@ def print_stats(total_size, status_code, ref):
 
 
 def main():
-    """Read stdin and compute metrics."""
+    """Read stdin and compute metrics"""
     line_count = 0
     total_size = 0
     status_code = [200, 301, 400, 401, 403, 404, 405, 500]
