@@ -15,7 +15,7 @@ def print_stats(total_size, status_code, ref):
 
 
 def main():
-    """Read stdin and compute metrics"""
+    """Read stdin and compute metrics."""
     line_count = 0
     total_size = 0
     status_code = [200, 301, 400, 401, 403, 404, 405, 500]
@@ -32,16 +32,14 @@ def main():
             line = line.strip()
             match = pattern.match(line)
 
-            if not match:
-                continue
+            if match:
+                code = int(match.group(1))
+                file_size = int(match.group(2))
 
-            code = int(match.group(1))
-            file_size = int(match.group(2))
+                if code in status_code:
+                    ref[code] = ref.get(code, 0) + 1
 
-            if code in status_code:
-                ref[code] = ref.get(code, 0) + 1
-
-            total_size += file_size
+                total_size += file_size
 
             if line_count % 10 == 0:
                 print_stats(total_size, status_code, ref)
