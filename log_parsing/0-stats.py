@@ -51,7 +51,7 @@ def main():
     except KeyboardInterrupt:
         print_stats(total_size, status_code, ref)
 
-    finally:
+    if line_count % 10 != 0:
         print_stats(total_size, status_code, ref)
 
 
