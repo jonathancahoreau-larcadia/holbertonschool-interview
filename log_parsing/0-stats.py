@@ -28,18 +28,21 @@ def main():
 
     try:
         for line in sys.stdin:
-            line_count += 1
             line = line.strip()
             match = pattern.match(line)
 
-            if match:
-                code = int(match.group(1))
-                file_size = int(match.group(2))
+            if not match:
+                continue
 
-                if code in status_code:
-                    ref[code] = ref.get(code, 0) + 1
+            line_count += 1
 
-                total_size += file_size
+            code = int(match.group(1))
+            file_size = int(match.group(2))
+
+            if code in status_code:
+                ref[code] = ref.get(code, 0) + 1
+
+            total_size += file_size
 
             if line_count % 10 == 0:
                 print_stats(total_size, status_code, ref)
