@@ -28,14 +28,12 @@ def main():
 
     try:
         for line in sys.stdin:
-
+            line_count += 1
             line = line.strip()
             match = pattern.match(line)
 
             if not match:
                 continue
-
-            line_count += 1
 
             code = int(match.group(1))
             file_size = int(match.group(2))
