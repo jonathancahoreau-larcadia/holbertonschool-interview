@@ -26,18 +26,15 @@ def main():
             parts = line.split()
 
             try:
-                file_size = int(parts[-1])
-                total_size += file_size
-            except (ValueError, IndexError):
-                pass
-
-            try:
                 code = int(parts[-2])
-
-                if code in status_codes:
-                    ref[code] = ref.get(code, 0) + 1
+                file_size = int(parts[-1])
             except (ValueError, IndexError):
-                pass
+                continue
+
+            total_size += file_size
+
+            if code in status_codes:
+                ref[code] = ref.get(code, 0) + 1
 
             if line_count % 10 == 0:
                 print_stats(total_size, status_codes, ref)
