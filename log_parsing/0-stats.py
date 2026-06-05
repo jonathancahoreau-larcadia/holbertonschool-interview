@@ -43,7 +43,6 @@ def main():
 
     except KeyboardInterrupt:
         print_stats(total_size, status_codes, ref)
-        
 
     else:
         print_stats(total_size, status_codes, ref)
