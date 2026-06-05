@@ -45,7 +45,7 @@ def main():
         print_stats(total_size, status_codes, ref)
         return
 
-    if line_count > 0:
+    else :
         print_stats(total_size, status_codes, ref)
 
 
