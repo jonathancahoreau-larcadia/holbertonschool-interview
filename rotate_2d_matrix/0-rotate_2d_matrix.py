@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module for rotating a square 2D matrix."""
+
+
 def rotate_2d_matrix(matrix):
     """Rotate a 2D matrix 90 degrees clockwise in-place.
 
